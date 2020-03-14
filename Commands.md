@@ -11,6 +11,9 @@
 [__sed__](#sed) Stream editor for filtering and transforming text    
 [__grep__](#grep)  Search the named input for lines containing a match to the given PATTERN    
 
+[__ls__](#ls) List file & directories under current folder
+
+
 ## chmod
 * permission
 	* > `r` : read (4)   
@@ -155,8 +158,8 @@
 	* > `i` : ignore case
 	* > `v` : invert the sense of matching, to select non-matching lines
 	* > `r` : read all files under directory, recursively
-	* > `c` : suppress normal output; instead, print a count of matching lines for each input file. 
-
+	* > `c` : suppress normal output; instead, print a count of matching lines for each input file 
+	* > `E` : search by Regular Expression
 
 ```Shell
 
@@ -199,3 +202,24 @@
 	let num-=10
 	echo 109-=10 : $num
 ```
+
+
+## ls
+
+* Options
+	* > `a` : include hidden(.) entries
+	* > `l` : with permission & detail information
+	* > `t` : order by created / updated time
+	* > `R` : list file information in sub-folder respectively
+
+```Shell
+
+	# list all file whose name starts with 's' under current folder
+	ls -ltr s*
+
+	# list all files under current folder wih=th detail information, order by created / updated time
+	list -alt
+
+	# list detail information of file under current folder & files under sub-folders
+	ls -lR 
+```	
