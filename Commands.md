@@ -9,10 +9,14 @@
 [__let__](#let) Perform arithmetic operation. Not need $ for variables
 [__expr__](#expr) Expression evaluation & and outputs the corresponding value   
 [__sed__](#sed) Stream editor for filtering and transforming text    
-[__grep__](#grep)  Search the named input for lines containing a match to the given PATTERN    
+[__grep__](#grep)  Search the named input for lines containing a match to the given PATTERN 
+
+[__touch__](#touch) update the timestamps on existing files and directories as well as creating new, empty files
 
 [__ls__](#ls) List file & directories under current folder
 
+[__cd__](#cd) Change working directory
+[__pwd__](#pwd) Print working directory
 
 ## chmod
 * permission
@@ -223,3 +227,40 @@
 	# list detail information of file under current folder & files under sub-folders
 	ls -lR 
 ```	
+
+## cd
+* Directory shortcut
+	* > `.` : current working directory
+	* > `..` : parent directory of current working directory
+	* > `~` : home directory
+	* > `/` : root directory
+	* > `-` : last working directory
+
+
+## pwd
+* Timstamp Type
+	* > `ctime` : change time, The last time the file's metadata, called the Status, was changed. Status information includes a file's permissions and its timestamps. Every time anything happens to a file, at least one element of its status changes, and its ctime is set to the current system time.
+	* > `atime` : access time, The last time the file was read.
+	* > `mtime` : modification time, The last time the contents of the file were modified.
+
+* Options
+	* > `L` : print working directory. Default
+	* > `P` : print physical directory, with any symbolic links
+
+
+## touch
+* Options
+	* > `a` : set access time to current time
+	* > `c` : if file exists, do not create new empty file, while set access time to current time
+	* > `m` : set modification time to current time
+
+
+```Shell
+
+	# create a empty file
+	touch newfile.bak
+
+	# set access time and modification time
+	touch -am newfile.bak
+
+```
