@@ -14,6 +14,9 @@
 [__touch__](#touch) update the timestamps on existing files and directories as well as creating new, empty files
 
 [__ls__](#ls) List file & directories under current folder
+[__stat__](#stat) displays the detailed status of a particular file or a file system
+[__file__](#file) detect file type. There are three sets of tests, performed in this order: filesystem tests, magic tests, and language tests.
+
 
 [__cd__](#cd) Change working directory
 [__pwd__](#pwd) Print working directory
@@ -209,7 +212,6 @@
 
 
 ## ls
-
 * Options
 	* > `a` : include hidden(.) entries
 	* > `l` : with permission & detail information
@@ -227,6 +229,38 @@
 	# list detail information of file under current folder & files under sub-folders
 	ls -lR 
 ```	
+
+
+## stat
+* Options
+	* > `f` : return the status of an entire file system
+
+```Shell
+
+	## display file status
+	stat commands.md
+
+	## display file status & tatus of an entire file system
+	stat -f commands.md
+
+```	
+
+
+## file
+* Options
+	* > `b` : not display file name
+	* > `i` : display file minetype
+
+```Shell
+
+	## display file information
+	file install.log
+
+	## display file mimtype
+	file -i install.log 
+
+```	
+
 
 ## cd
 * Directory shortcut
