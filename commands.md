@@ -6,20 +6,20 @@
 [__echo__](#echo) Print to terminal / file   
 [__printf__](#printf) Produce precisely-formatted output from numerical or textual arguments   
 
-[__let__](#let) Perform arithmetic operation. Not need $ for variables
+[__let__](#let) Perform arithmetic operation. Not need $ for variables    
 [__expr__](#expr) Expression evaluation & and outputs the corresponding value   
 [__sed__](#sed) Stream editor for filtering and transforming text    
-[__grep__](#grep)  Search the named input for lines containing a match to the given PATTERN 
+[__grep__](#grep)  Search the named input for lines containing a match to the given PATTERN  
 
-[__touch__](#touch) update the timestamps on existing files and directories as well as creating new, empty files
+[__touch__](#touch) update the timestamps on existing files and directories as well as creating new, empty files    
 
-[__ls__](#ls) List file & directories under current folder
-[__stat__](#stat) displays the detailed status of a particular file or a file system
-[__file__](#file) detect file type. There are three sets of tests, performed in this order: filesystem tests, magic tests, and language tests.
+[__ls__](#ls) List file & directories under current folder    
+[__stat__](#stat) displays the detailed status of a particular file or a file system    
+[__file__](#file) detect file type. There are three sets of tests, performed in this order: filesystem tests, magic tests, and language tests    
 
 
-[__cd__](#cd) Change working directory
-[__pwd__](#pwd) Print working directory
+[__cd__](#cd) Change working directory    
+[__pwd__](#pwd) Print working directory    
 
 ## chmod
 * permission
