@@ -224,6 +224,28 @@
 ```
 
 
+## ps
+* Options
+	* > `a` : all processes except both session leaders and processes not associated with a terminal
+	* > `u` : 
+	* > `x` : 
+	* > `e` : 
+	* > `l` : 
+	* > `f` : 
+
+```Shell
+
+	# list all file whose name starts with 's' under current folder
+	ls -ltr s*
+
+	# list all files under current folder wih=th detail information, order by created / updated time
+	list -alt
+
+	# list detail information of file under current folder & files under sub-folders
+	ls -lR 
+```	
+
+
 ## ls
 * Options
 	* > `a` : include hidden(.) entries
