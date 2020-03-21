@@ -1,25 +1,38 @@
 # Linux Commands
 
 ## Index
-[__chmod__](#chmod) Change access permission of file system object  
+[__chmod__](#chmod) change access permission of file system object  
+[__touch__](#touch) update the timestamps on existing files and directories as well as creating new, empty files 
 
-[__echo__](#echo) Print to terminal / file   
+
+[__echo__](#echo) print to terminal / file   
 [__printf__](#printf) Produce precisely-formatted output from numerical or textual arguments   
 
-[__let__](#let) Perform arithmetic operation. Not need $ for variables    
-[__expr__](#expr) Expression evaluation & and outputs the corresponding value   
-[__sed__](#sed) Stream editor for filtering and transforming text    
-[__grep__](#grep)  Search the named input for lines containing a match to the given PATTERN  
+[__let__](#let) perform arithmetic operation. Not need $ for variables    
+[__expr__](#expr) expression evaluation & and outputs the corresponding value   
+[__sed__](#sed) stream editor for filtering and transforming text    
+[__grep__](#grep)  search the named input for lines containing a match to the given PATTERN  
 
-[__touch__](#touch) update the timestamps on existing files and directories as well as creating new, empty files    
+   
+[__bc__](#bc) a language that supports arbitrary-precision numbers, meaning that it delivers accurate results regardless of how large (or very small) the numbers are   
+[__date__](#date) date command is used to print out, or change the value of, the system's time and date information    
+[__ps__](#ps) report a snapshot of the status of currently running processes    
 
-[__ls__](#ls) List file & directories under current folder    
+[__ls__](#ls) list file & directories under current folder    
 [__stat__](#stat) displays the detailed status of a particular file or a file system    
 [__file__](#file) detect file type. There are three sets of tests, performed in this order: filesystem tests, magic tests, and language tests    
 
 
-[__cd__](#cd) Change working directory    
-[__pwd__](#pwd) Print working directory    
+[__cd__](#cd) change working directory    
+[__pwd__](#pwd) print working directory    
+[__mkdir__](#mkdir) create directories    
+[__cp__](#cp) make copies of files and directories    
+[__mv__](#mv) rename / move files / directories    
+[__rm__](#rm) remove files / directories    
+
+
+[__ping__](#ping) ping is a simple way to send network data to, and receive network data from, another computer on a network   
+
 
 ## chmod
 * permission
@@ -216,6 +229,7 @@
 	* > `a` : include hidden(.) entries
 	* > `l` : with permission & detail information
 	* > `t` : order by created / updated time
+	* > `r` : reversed order (desc)
 	* > `R` : list file information in sub-folder respectively
 
 ```Shell
@@ -282,12 +296,80 @@
 	* > `P` : print physical directory, with any symbolic links
 
 
+## mkdir
+* Options
+	* > `p` : create parent directories as necessary. When this option is specified, no error is reported if a directory already exists    
+	* > `m` : set a file mode (permissions, etc.) for the created directories
+
+```Shell
+
+	# create directory with parent directories
+	mkdir -p BBB/Test
+
+	# create directory & grant rwx to all users
+	mkdir -m a=rwx mydir  
+
+```
+
+## cp
+* Options
+	* > `a` : dpr
+	* > `d` : copy symbolic links themselves, rather than the files they refer to, and preserve hard links between source files in the copies
+	* > `p` : never follow symbolic links in source; copy symlinks as symlinks
+	* > `r` : copy directories recursively
+	* > `l` : create hard links to files instead of copying them
+	* > `i` : prompt & confirm before overwrite 
+	* > `f` : no prompt & confirm before overwrite 
+
+```Shell
+
+	# simple copy
+	cp file1 file2
+
+	# copy folder & subfolders
+	cp –r test/ newtest  
+
+```
+
+
+## mv
+* Options
+	* > `i` : prompt & confirm before overwrite 
+	* > `f` : no prompt & confirm before overwrite 
+
+```Shell
+
+	# rename file aaa into bbb
+	mv aaa bbb
+
+	# move info directory into logs directory, if logs directory does not exist, rename info directory into logs 
+	mv info/ logs
+
+```
+
+
+## rm
+* Options
+	* > `i` : prompt & confirm before overwrite 
+	* > `f` : no prompt & confirm before overwrite 
+	* > `r` : recursively remove subfolders
+
+```Shell
+
+	# remove file
+	rm aaa
+
+	# remove folder & subfolders
+	mv -r folder
+
+```
+
+
 ## touch
 * Options
 	* > `a` : set access time to current time
 	* > `c` : if file exists, do not create new empty file, while set access time to current time
 	* > `m` : set modification time to current time
-
 
 ```Shell
 
@@ -296,5 +378,87 @@
 
 	# set access time and modification time
 	touch -am newfile.bak
+
+```
+
+
+## ping
+* Options
+	* > `c` : stop after sending count ECHO_REQUEST packets
+	* > `i` : wait interval seconds between sending each packet
+	* > `s` : specifies the number of data bytes to be sent. The default is 56
+	* > `t` : set the IP TTL (time-to-live)
+
+```Shell
+
+	# simple ping
+	ping www.w3cschool.cc
+
+	# send echo request package 2 times
+	ping -c 2 www.w3cschool.cc
+
+	# send 1024 bytes echo request package every 3 seconds with ttl = 255
+	ping -i 3 -s 1024 -t 255 g.cn
+
+```
+
+
+## bc
+* Operator
+	* > `+` : add
+	* > `-` : minus
+	* > `*` : multiplate
+	* > `/` : divide
+	* > `%` : remainder
+	* > `^` : exponent   
+* Function
+	* > `scale(expression)` : get the number of digits after the decimal point in the expression    
+	* > `sqrt(expression)` : the square root of the expression. If the expression is negative, a runtime error is generated    
+	* > `length(expression)` : the number of significant digits in the expression    
+* Variable
+	* > `scale` : define how some operations use digits after the decimal point. The default value of scale is 0
+	* > `ibase` : define the conversion base for input numbers
+	* > `obase` : define the conversion base for output numbers
+
+```Shell
+
+	# bc
+	echo "15+5" | bc
+
+	# bc + scale
+	echo 'scale=2; (2.777 - 1.4744)/1' | bc
+
+	# bc convert binary into decimal
+	echo "ibase=2; 111" | bc
+
+	# bc convert decimal into binary
+	abc=192 
+	echo "obase=2;$abc" | bc
+
+	# bc exponent
+	echo "10^10" | bc 
+
+	# bc square root
+	echo "sqrt(100)" | bc
+
+```
+
+
+## date
+* Options
+	* > `u` : print or set Coordinated Universal Time
+	* > `utc` : print or set Coordinated Universal Time
+	* > `universal` : print or set Coordinated Universal Time
+	* > `R` : Output date and time in RFC 2822 format. Example: Sat, 21 Mar 2020 22:11:09 +0800
+
+```Shell
+
+	# date utc
+	date -u
+	date -utc
+	date -universal
+
+	# date in RFC 2822 format
+	date -R
 
 ```
