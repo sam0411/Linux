@@ -10,8 +10,11 @@
 
 [__let__](#let) perform arithmetic operation. Not need $ for variables    
 [__expr__](#expr) expression evaluation & and outputs the corresponding value   
+
+
 [__sed__](#sed) stream editor for filtering and transforming text    
 [__grep__](#grep)  search the named input for lines containing a match to the given PATTERN  
+[__cat__](#cat) read data from files, and outputs their contents   
 
    
 [__bc__](#bc) a language that supports arbitrary-precision numbers, meaning that it delivers accurate results regardless of how large (or very small) the numbers are   
@@ -28,7 +31,7 @@
 [__mkdir__](#mkdir) create directories    
 [__cp__](#cp) make copies of files and directories    
 [__mv__](#mv) rename / move files / directories    
-[__rm__](#rm) remove files / directories    
+[__rm__](#rm) remove files / directories     
 
 
 [__ping__](#ping) ping is a simple way to send network data to, and receive network data from, another computer on a network   
@@ -130,7 +133,19 @@
 ```
 
 ## sed
-
+* Options
+	* > `e <script>` : add script to the commands to be executed    
+	* > `f <script>` : add contents of script-file to the commands to be executed    
+	* > `i <script>` : add script to file to be executed  
+	* > `n` : suppress automatic printing of pattern space     
+	* > `quiet / silence` : suppress automatic printing of pattern space    
+* Commands
+	* > `a` :      
+	* > `c` :      
+	* > `d` :      
+	* > `i` :      
+	* > `s` :      
+	* > `p` :        
 
 ```Shell
 
@@ -483,4 +498,39 @@
 	# date in RFC 2822 format
 	date -R
 
+```
+
+
+
+## cat
+* Options
+	* > `n` : number all output lines
+	* > `b` : number non-empty output lines
+	* > `s` : squeeze blank lines. supress repeated empty lines
+	* > `v` : use ^ and M- notation, except for LFD and TAB
+	* > `E` : display "$" at end of each line
+	* > `T` : display TAB characters as ^I
+	* > `A` : -vET
+	* > `e` : -vE
+	* > `t` : -vT
+* Actions
+	* > `>` : overwrite
+	* > `>>` : append
+
+```Shell
+
+	# display file lines with line number
+	cat -n test.txt.bak
+
+	# output file lines with line number to another file
+	cat -n test.txt.bak > test2.txt.bak
+
+	# output file lines with line number to another file
+	cat -n test.txt.bak > test2.txt.bak
+
+	# append file to another file
+	cat test.txt.bak >> test2.txt.bak
+
+	# empty file
+	cat /dev/null > test2.txt.bak
 ```
