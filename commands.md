@@ -13,7 +13,7 @@
 
 
 [__sed__](#sed) stream editor for filtering and transforming text    
-[__grep__](#grep)  search the named input for lines containing a match to the given PATTERN  
+[__grep__](#grep) search the named input for lines containing a match to the given PATTERN  
 [__cat__](#cat) read data from files, and outputs their contents   
 
    
