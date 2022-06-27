@@ -4,9 +4,11 @@
 [__chmod__](#chmod) change access permission of file system object  
 [__touch__](#touch) update the timestamps on existing files and directories as well as creating new, empty files 
 
+[__bash__](#bash) run bash  
 
 [__echo__](#echo) print to terminal / file   
 [__printf__](#printf) Produce precisely-formatted output from numerical or textual arguments   
+[__shuf__](#shuf) generate random ouput on top of input   
 
 [__let__](#let) perform arithmetic operation. Not need $ for variables    
 [__expr__](#expr) expression evaluation & and outputs the corresponding value   
@@ -36,6 +38,27 @@
 
 [__ping__](#ping) ping is a simple way to send network data to, and receive network data from, another computer on a network   
 
+## bash
+* Options
+	* > `c` : run command string
+```Shell
+
+	bash -c "shuf -i 1-10000 -n 1"
+
+```
+
+## shuf
+* Options
+	* > `e` : use the rest input parameter as input
+	* > `i` : input range from low to high
+	* > `n` : no. of output 
+	* > `o` : output to a file 	
+```Shell
+	shuf -e 1 2 3 4 5 6
+	shuf -i 1-6
+	shuf -n 3 -i 1-6
+	shuf -n 3 -i 1-6 -o output.txt
+```
 
 ## chmod
 * permission
@@ -105,6 +128,9 @@
 
 	#print command executation result
 	echo `date`
+
+	#print Shell command position
+	echo $SHELL
 ```
 
 ## expr
